@@ -49,6 +49,13 @@ function App() {
     return `${completedTasks.length} de ${tasks.length}`
   }
 
+  const removeTask = (id: number) => {
+    const updatedTasks = tasks.filter((task) => task.id !== id)
+
+    setTasks(updatedTasks)
+
+    return
+  }
   return (
     <>
       <Header />
@@ -74,7 +81,11 @@ function App() {
               </div>
             </div>
           ) : (
-            <Tasks tasks={tasks} updateStatus={updateStatus} />
+            <Tasks
+              tasks={tasks}
+              updateStatus={updateStatus}
+              removeTask={removeTask}
+            />
           )}
         </div>
       </div>

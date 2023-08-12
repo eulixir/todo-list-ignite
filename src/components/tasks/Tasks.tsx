@@ -5,10 +5,11 @@ import { Circle, CheckCircle, Trash } from 'phosphor-react'
 interface TasksProps {
   tasks: TaskProps[]
   updateStatus: (id: number, state: boolean) => void
+  removeTask: (id: number) => void
 }
 
 export const Tasks = (props: TasksProps) => {
-  const { updateStatus, tasks } = props
+  const { updateStatus, tasks, removeTask } = props
 
   return (
     <div>
@@ -29,7 +30,10 @@ export const Tasks = (props: TasksProps) => {
 
           <p>{task.title}</p>
 
-          <button className={styles.removeIcon}>
+          <button
+            className={styles.removeIcon}
+            onClick={() => removeTask(task.id)}
+          >
             <Trash size={14} />
           </button>
         </div>

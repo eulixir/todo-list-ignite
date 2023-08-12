@@ -34,12 +34,24 @@
   cursor: pointer;
 }
 
+.completed,
+.toComplete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 24px;
+  width: 24px;
+}
+
 .completed svg {
   color: var(--purple-dark);
 }
 
 .completed svg:hover {
   color: var(--purple);
+
+  border: 1px solid var(--purple);
 }
 
 .toComplete svg {
@@ -48,6 +60,12 @@
 
 .toComplete svg:hover {
   color: var(--blue-dark);
+}
+
+.toComplete:focus,
+.completed:focus {
+  border: 1px solid var(--purple);
+  border-radius: 4px;
 }
 
 .removeIcon {
@@ -60,5 +78,12 @@
 .removeIcon:hover {
   color: var(--red);
   background: var(--gray-400);
+  border-radius: 4px;
+}
+
+.removeIcon:focus {
+  color: var(--red);
+  background: var(--gray-400);
+
   border-radius: 4px;
 }
