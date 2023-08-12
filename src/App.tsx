@@ -56,6 +56,14 @@ function App() {
 
     return
   }
+
+  const orderTasksByStatus = () => {
+    const completedTasks = tasks.filter((task) => task.isComplete)
+    const toCompleteTasks = tasks.filter((task) => !task.isComplete)
+
+    return [...toCompleteTasks, ...completedTasks]
+  }
+
   return (
     <>
       <Header />
@@ -82,7 +90,7 @@ function App() {
             </div>
           ) : (
             <Tasks
-              tasks={tasks}
+              tasks={orderTasksByStatus(tasks)}
               updateStatus={updateStatus}
               removeTask={removeTask}
             />

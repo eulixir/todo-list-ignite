@@ -18,6 +18,8 @@ export const TaskInput = ({ createTask }: TaskInputProps) => {
 
     createTask(newTask)
 
+    setTiping('')
+
     return
   }
 
@@ -34,6 +36,7 @@ export const TaskInput = ({ createTask }: TaskInputProps) => {
       <form onSubmit={handleCreateNewTask}>
         <input
           type="text"
+          required
           value={tiping}
           onChange={(e) => setTiping(e.target.value)}
           placeholder="Adicione uma tarefa"

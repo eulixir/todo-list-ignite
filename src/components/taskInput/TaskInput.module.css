@@ -70,9 +70,3 @@
 .inputContainer button:focus {
   border: 1px solid var(--purple-dark, #5e60ce);
 }
-
-@media (max-width: 768px) {
-  .inputContainer {
-    width: 100%;
-  }
-}
