@@ -1,0 +1,51 @@
+.taskContainer {
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.taskContainer > * {
+  width: 100%;
+  max-width: 736px;
+}
+
+.taskInfo {
+  width: 100%;
+  height: 24px;
+  margin-bottom: 1.5rem;
+  margin-top: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.taskInfo p {
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.taskInfo p > span {
+  padding: 2px 8px;
+  height: 19px;
+  width: 25px;
+
+  border-radius: 999px;
+  background: var(--gray-400, #333);
+
+  color: var(--gray-200, #d9d9d9);
+}
+
+.taskInfo p:first-child {
+  color: var(--blue, #4ea8de);
+}
+
+.taskInfo p:last-child {
+  color: var(--purple, #8284fa);
+}

@@ -1,0 +1,78 @@
+.inputContainer {
+  position: relative;
+  margin-top: -27px;
+  z-index: 2;
+}
+
+.inputContainer > form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.inputContainer input[type='text'] {
+  width: 100%;
+  height: 54px;
+  border: var(--gray-700);
+  background: var(--gray-500);
+  outline: none;
+  border-radius: 8px;
+  color: var(--gray-100);
+  padding: 1rem;
+
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 22.4px */
+}
+
+.inputContainer input[type='text']::placeholder {
+  color: var(--gray-300);
+}
+
+.inputContainer input[type='text']:focus {
+  border: 1px solid var(--purple-dark, #5e60ce);
+}
+
+.inputContainer button {
+  margin-left: 0.5rem;
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  outline: none;
+  border: none;
+
+  height: 54px;
+
+  border-radius: 8px;
+  background: var(--blue-dark, #1e6f9f);
+
+  color: var(--gray-100, #f2f2f2);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%; /* 19.6px */
+
+  cursor: pointer;
+}
+
+.inputContainer button:hover {
+  transition: 0.2s;
+  background: var(--blue, #4ea8de);
+}
+
+.inputContainer button:focus {
+  border: 1px solid var(--purple-dark, #5e60ce);
+}
+
+@media (max-width: 768px) {
+  .inputContainer {
+    width: 100%;
+  }
+}
