@@ -49,3 +49,6 @@
 .taskInfo p:last-child {
   color: var(--purple, #8284fa);
 }
+
+.emptyTasksContainer {
+}

@@ -5,6 +5,7 @@ import { TaskInput } from './components/taskInput/TaskInput'
 import { Tasks } from './components/tasks/Tasks'
 
 import styles from './App.module.css'
+import { NoTasks } from './components/noTasks/NoTasks'
 
 export interface TaskProps {
   id: number
@@ -24,7 +25,11 @@ function App() {
   const calcCompletedTasks = () => {
     const completedTasks = tasks.filter((task) => task.isComplete === true)
 
-    return completedTasks.length
+    if (completedTasks.length === 0) {
+      return 0
+    }
+
+    return `${completedTasks} de ${completedTasks.length}`
   }
 
   return (
@@ -41,9 +46,10 @@ function App() {
             Concluídas <span>{calcCompletedTasks()}</span>
           </p>
         </div>
-        {tasks.map((task) => (
-          <Tasks key={task.id} task={task} />
-        ))}
+
+        <div className={styles.tasksContainer}>
+          {tasks.length === 0 ? <NoTasks /> : <Tasks tasks={tasks} />}
+        </div>
       </div>
     </>
   )
