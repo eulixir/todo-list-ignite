@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react'
 import { TaskProps } from '../../App'
+import plusIcon from '../../assets/plusIcon.svg'
 
 import styles from './TaskInput.module.css'
 
@@ -37,7 +38,9 @@ export const TaskInput = ({ createTask }: TaskInputProps) => {
           onChange={(e) => setTiping(e.target.value)}
           placeholder="Adicione uma tarefa"
         />
-        <button type="submit">Criar +</button>
+        <button type="submit">
+          Criar <img src={plusIcon} />
+        </button>
       </form>
     </div>
   )

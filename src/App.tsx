@@ -5,7 +5,7 @@ import { TaskInput } from './components/taskInput/TaskInput'
 import { Tasks } from './components/tasks/Tasks'
 
 import styles from './App.module.css'
-import { NoTasks } from './components/noTasks/NoTasks'
+import noteIcon from './assets/note.svg'
 
 export interface TaskProps {
   id: number
@@ -22,6 +22,23 @@ function App() {
     return
   }
 
+  const updateStatus = (id: number, state: boolean) => {
+    const updatedTask = tasks.map((task) => {
+      if (task.id === id) {
+        return {
+          ...task,
+          isComplete: state,
+        }
+      } else {
+        return task
+      }
+    })
+
+    setTasks(updatedTask)
+
+    return
+  }
+
   const calcCompletedTasks = () => {
     const completedTasks = tasks.filter((task) => task.isComplete === true)
 
@@ -29,7 +46,7 @@ function App() {
       return 0
     }
 
-    return `${completedTasks} de ${completedTasks.length}`
+    return `${completedTasks.length} de ${tasks.length}`
   }
 
   return (
@@ -48,7 +65,17 @@ function App() {
         </div>
 
         <div className={styles.tasksContainer}>
-          {tasks.length === 0 ? <NoTasks /> : <Tasks tasks={tasks} />}
+          {tasks.length === 0 ? (
+            <div className={styles.emptyContainer}>
+              <div>
+                <img src={noteIcon} alt="" />
+                <h6>Você ainda não tem tarefas cadastradas</h6>
+                <p>Crie tarefas e organize seus itens a fazer</p>
+              </div>
+            </div>
+          ) : (
+            <Tasks tasks={tasks} updateStatus={updateStatus} />
+          )}
         </div>
       </div>
     </>
