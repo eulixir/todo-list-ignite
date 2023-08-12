@@ -90,7 +90,7 @@ function App() {
             </div>
           ) : (
             <Tasks
-              tasks={orderTasksByStatus(tasks)}
+              tasks={orderTasksByStatus()}
               updateStatus={updateStatus}
               removeTask={removeTask}
             />
